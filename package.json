@@ -1,0 +1,32 @@
+{
+  "name": "angular-locale",
+  "version": "0.1.0",
+  "description": "Currency and Locale manager for AngularJS",
+  "main": "dist/angular-locale.js",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-uglify": "^0.9.1"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtex/angular-locale.git"
+  },
+  "keywords": [
+    "angular",
+    "locale",
+    "currency",
+    "monetary",
+    "vtex"
+  ],
+  "author": "Gustavo Giserman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vtex/angular-locale/issues"
+  },
+  "homepage": "https://github.com/vtex/angular-locale#readme"
+}
