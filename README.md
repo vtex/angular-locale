@@ -21,6 +21,7 @@ angular.module 'yourApp', ['vtex.ngLocale']
 
 #### localeUpdated.vtex
 - `LocaleService` **triggers** this once it has set `$translate` to use new language and i18n is updated.
+Obs: `setCurrency` is called everytime language/locale gets updated, since it will reset `$locale.NUMBER_FORMATS` each time.
 
 #### currencyUpdated.vtex
 - `LocaleService` **triggers** this once it has set `$locale` according to current currency configuration.
@@ -52,10 +53,10 @@ ngPatterns:
 This gets mapped into Angular's `$locale`:
 
 ```coffeescript
-$locale.NUMBER_FORMATS.CURRENCY_SYM = currency.currencySymbol
-$locale.NUMBER_FORMATS.DECIMAL_SEP = currency.decimalSeparator
-$locale.NUMBER_FORMATS.GROUP_SEP = currency.groupSeparator
-$locale.NUMBER_FORMATS.PATTERNS[1] = currency.ngPatterns
+$locale.NUMBER_FORMATS.CURRENCY_SYM = currencyConfiguration.currencySymbol
+$locale.NUMBER_FORMATS.DECIMAL_SEP = currencyConfiguration.decimalSeparator
+$locale.NUMBER_FORMATS.GROUP_SEP = currencyConfiguration.groupSeparator
+$locale.NUMBER_FORMATS.PATTERNS[1] = currencyConfiguration.ngPatterns
 ```
 
 *Obs:* ngPatterns/NUMBER_FORMATS.PATTERNS[1] has a default value, no worries :)

@@ -17,23 +17,10 @@ angular.module('vtex.ngLocale', [])
 
 		throw new Error 'Locale: Currency Code must follow XXX format' if currency.code?.length isnt 3
 
-		currency = vtex.topbar.utils.config.currency
-		defaultPatterns =
-			gSize: 3
-			lgSize: 3
-			macFrac: 0
-			maxFrac: 2
-			minFrac: 2
-			minInt: 1
-			negPre: "- \u00a4"
-			negSuf: ""
-			posPre: "\u00a4"
-			posSuf: ""
-
-		$locale.NUMBER_FORMATS.CURRENCY_SYM = currency.currencySymbol
-		$locale.NUMBER_FORMATS.DECIMAL_SEP = currency.decimalSeparator
-		$locale.NUMBER_FORMATS.GROUP_SEP = currency.groupSeparator
-		$locale.NUMBER_FORMATS.PATTERNS[1] = currency.ngPatterns or defaultPatterns
+		$locale.NUMBER_FORMATS.CURRENCY_SYM = currency.configuration.currencySymbol
+		$locale.NUMBER_FORMATS.DECIMAL_SEP = currency.configuration.decimalSeparator
+		$locale.NUMBER_FORMATS.GROUP_SEP = currency.configuration.groupSeparator
+		$locale.NUMBER_FORMATS.PATTERNS[1] = currency.configuration.ngPatterns
 
 		$rootScope.$broadcast 'currencyUpdated.vtex', currency.code
 
@@ -41,9 +28,11 @@ angular.module('vtex.ngLocale', [])
 	return this
 
 
-.run (LocaleService, $window) ->
+.run ($rootScope, $window, LocaleService) ->
 	LocaleService.setLanguage()
-	LocaleService.setCurrency()
+
+	$rootScope.$on 'localeUpdated.vtex', ->
+		LocaleService.setCurrency()
 
 	angular.element($window).on 'localeSelected.vtex', (evt, lang) ->
 		LocaleService.setLanguage lang
