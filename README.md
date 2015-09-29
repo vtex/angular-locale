@@ -3,12 +3,12 @@ Currency and Locale manager for AngularJS
 
 ## Usage
 
-### Reference script
+#### Reference script
 ```html
 <script src="angular-locale.min.js"></script>
 ```
 
-### Inject `vtex.ngLocale`
+#### Inject `vtex.ngLocale`
 ```coffeescript
 angular.module 'yourApp', ['vtex.ngLocale']
 ```
@@ -61,7 +61,7 @@ $locale.NUMBER_FORMATS.PATTERNS[1] = currencyConfiguration.ngPatterns
 
 *Obs:* ngPatterns/NUMBER_FORMATS.PATTERNS[1] has a default value, no worries :)
 
-### Development
+## Development
 Inside `src` you can find this module source code, written in **CoffeeScript**. To build the `.js` and uglify it, install npm dev-dependencies and run grunt:
 
     (sudo) npm i
