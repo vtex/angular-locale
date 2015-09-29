@@ -1,6 +1,6 @@
 {
   "name": "angular-locale",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Currency and Locale manager for AngularJS",
   "main": "dist/angular-locale.js",
   "devDependencies": {
